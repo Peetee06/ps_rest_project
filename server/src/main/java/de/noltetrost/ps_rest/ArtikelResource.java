@@ -48,41 +48,41 @@ public class ArtikelResource {
 		return artikelJSON;
 	}
 	
-//	@POST
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public String createArtikel(
-//			@FormParam("artikelid") String _artikelID,
-//			@FormParam("bezeichnung") String bezeichnung,
-//			@FormParam("lagerbestand") String _lagerbestand,
-//			@FormParam("preis") String _preis) 
-//					throws ClassNotFoundException, SQLException, JsonProcessingException {
-//
-//		int artikelID = Integer.parseInt(_artikelID);
-//		int lagerbestand = Integer.parseInt(_lagerbestand);
-//		double preis = Double.parseDouble(_preis);
-//		
-//		Artikel artikel = new Artikel(artikelID, bezeichnung, lagerbestand, preis);
-//		
-//		DatabaseHandler dbHandler = new DatabaseHandler();
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		
-//		dbHandler.connectDb();
-//		try {
-//			dbHandler.fuegeArtikelEin(artikel);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return "";
-//		}
-//		
-//		System.out.println("wrote artikel");
-//		dbHandler.closeDb();
-//		String artikelJSON = objectMapper.writeValueAsString(artikel);
-//		System.out.println(artikelJSON);
-//		
-//		return artikelJSON;
-//
-//	}
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String createArtikel(
+			@FormParam("artikelid") String _artikelID,
+			@FormParam("bezeichnung") String bezeichnung,
+			@FormParam("lagerbestand") String _lagerbestand,
+			@FormParam("preis") String _preis) 
+					throws ClassNotFoundException, SQLException, JsonProcessingException {
+
+		int artikelID = Integer.parseInt(_artikelID);
+		int lagerbestand = Integer.parseInt(_lagerbestand);
+		double preis = Double.parseDouble(_preis);
+		
+		Artikel artikel = new Artikel(artikelID, bezeichnung, lagerbestand, preis);
+		
+		DatabaseHandler dbHandler = new DatabaseHandler();
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		dbHandler.connectDb();
+		try {
+			dbHandler.fuegeArtikelEin(artikel);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return "";
+		}
+		
+		System.out.println("wrote artikel");
+		dbHandler.closeDb();
+		String artikelJSON = objectMapper.writeValueAsString(artikel);
+		System.out.println(artikelJSON);
+		
+		return artikelJSON;
+
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
