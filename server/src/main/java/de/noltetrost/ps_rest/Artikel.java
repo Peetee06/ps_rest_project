@@ -1,0 +1,48 @@
+package de.noltetrost.ps_rest;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Artikel {
+	private int artikelID;
+	private String bezeichnung;
+	private int lagerbestand;
+	private double preis;
+	
+	public Artikel(int artikelID, String bezeichnung, int lagerbestand, double preis) {
+		this.artikelID = artikelID;
+		this.bezeichnung = bezeichnung;
+		this.lagerbestand = lagerbestand;
+		this.preis = preis;
+	}
+	
+	public Artikel() {
+
+	}	
+
+	public int getArtikelID() {
+		return artikelID;
+	}
+	public void setArtikelID(int artikelID) {
+		this.artikelID = artikelID;
+	}
+	public String getBezeichnung() {
+		return bezeichnung;
+	}
+	public void setBezeichnung(String bezeichnung) {
+		this.bezeichnung = bezeichnung;
+	}
+	public int getLagerbestand() {
+		return lagerbestand;
+	}
+	public void setLagerbestand(int lagerbestand) {
+		this.lagerbestand = lagerbestand;
+	}
+	public double getPreis() {
+		return preis;
+	}
+	public void setPreis(double preis) {
+		this.preis = preis;
+	}
+
+}
