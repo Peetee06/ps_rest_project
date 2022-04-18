@@ -1,8 +1,5 @@
 package de.noltetrost.ps_rest;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class Artikel {
 	private int artikelID;
 	private String bezeichnung;

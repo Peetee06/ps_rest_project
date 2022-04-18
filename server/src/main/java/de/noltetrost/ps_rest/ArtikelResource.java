@@ -109,19 +109,5 @@ public class ArtikelResource {
 		return Response.status(Response.Status.CREATED).entity(artikelJSON).build();
 
 	}
-	
-	
-//	@POST
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Response createArtikel(Artikel artikel) 
-//					throws ClassNotFoundException, SQLException, JsonProcessingException {
-//		
-//		
-//		System.out.println("got: " + artikel);
-//		
-//		return Response.status(Response.Status.CREATED).entity(artikel).build();
-//
-//	}
 
 }

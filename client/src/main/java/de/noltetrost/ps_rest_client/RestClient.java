@@ -12,13 +12,11 @@ public class RestClient {
 	= "http://localhost:8080/ps_rest/webapi";
 	private static final String URI_Artikel 
 	= REST_URI + "/artikel";
-	private static final String URI_Warenkoerbe 
-	= REST_URI + "/warenkoerbe";
 			
 
 	private Client client = ClientBuilder.newClient();
 
-	public Artikel[] getOneArtikel(int id) {
+	public Artikel getOneArtikel(int id) {
 		Artikel[] artikelArray = 
 				client
 				.target(URI_Artikel)
@@ -26,7 +24,7 @@ public class RestClient {
 				.request(MediaType.APPLICATION_JSON)
 				.get(Artikel[].class);
 
-		return artikelArray;
+		return artikelArray[0];
 	}
 	
 	public Artikel[] getAllArtikel() {
@@ -49,5 +47,5 @@ public class RestClient {
 		
 		return response;
 	}
-	//...
+	
 }

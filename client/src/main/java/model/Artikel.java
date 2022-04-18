@@ -1,8 +1,5 @@
 package model;
 
-import jakarta.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class Artikel {
 	private int artikelID;
 	private String bezeichnung;

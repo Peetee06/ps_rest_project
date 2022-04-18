@@ -64,13 +64,25 @@ public class ControllerTabelle implements Initializable {
 		bezeichnungField.setText("");
 		lagerbestandField.setText("");
 		preisField.setText("");
-		
+
 		this.refreshArtikel();
 	}
 
 	@FXML
 	protected void refreshArtikel(ActionEvent event) {
 		this.refreshArtikel();
+	}
+
+	public ObservableList<Artikel> getArtikelList() {
+
+		Artikel[] artikelArray = this.client.getAllArtikel();
+
+		ObservableList<Artikel> artikelList = FXCollections.observableArrayList(artikelArray);
+		return artikelList;
+	}
+
+	public void refreshArtikel() {
+		tableView.setItems(this.getArtikelList());
 	}
 
 	@Override
@@ -145,18 +157,6 @@ public class ControllerTabelle implements Initializable {
 				);
 
 		this.refreshArtikel();
-	}
-
-	public ObservableList<Artikel> getArtikelList() {
-
-		Artikel[] artikelArray = this.client.getAllArtikel();
-
-		ObservableList<Artikel> artikelList = FXCollections.observableArrayList(artikelArray);
-		return artikelList;
-	}
-	
-	public void refreshArtikel() {
-		tableView.setItems(this.getArtikelList());
 	}
 
 }
