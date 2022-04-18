@@ -50,8 +50,8 @@ public class ArtikelResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.APPLICATION_JSON)
-	public String createArtikel(
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response createArtikel(
 			@FormParam("artikelid") String _artikelID,
 			@FormParam("bezeichnung") String bezeichnung,
 			@FormParam("lagerbestand") String _lagerbestand,
@@ -72,15 +72,15 @@ public class ArtikelResource {
 			dbHandler.fuegeArtikelEin(artikel);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return "";
+			return Response.status(Response.Status.CONFLICT).build();
 		}
 		
 		System.out.println("wrote artikel");
 		dbHandler.closeDb();
-		String artikelJSON = objectMapper.writeValueAsString(artikel);
-		System.out.println(artikelJSON);
+		String artikelEndpoint = "/webapi/artikel/" + artikelID;
+		System.out.println(artikelEndpoint);
 		
-		return artikelJSON;
+		return Response.status(Response.Status.CREATED).entity(artikelEndpoint).build();
 
 	}
 	
@@ -91,7 +91,6 @@ public class ArtikelResource {
 					throws ClassNotFoundException, SQLException, JsonProcessingException {
 		
 		DatabaseHandler dbHandler = new DatabaseHandler();
-		ObjectMapper objectMapper = new ObjectMapper();
 		
 		dbHandler.connectDb();
 		try {
@@ -103,10 +102,10 @@ public class ArtikelResource {
 		
 		System.out.println("wrote artikel");
 		dbHandler.closeDb();
-		String artikelJSON = objectMapper.writeValueAsString(artikel);
-		System.out.println(artikelJSON);
+		String artikelEndpoint = "/webapi/artikel/" + artikel.getArtikelID();
+		System.out.println(artikelEndpoint);
 		
-		return Response.status(Response.Status.CREATED).entity(artikelJSON).build();
+		return Response.status(Response.Status.CREATED).entity(artikelEndpoint).build();
 
 	}
 
