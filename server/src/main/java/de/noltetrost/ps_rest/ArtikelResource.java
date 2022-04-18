@@ -86,7 +86,7 @@ public class ArtikelResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response createArtikel(Artikel artikel) 
 					throws ClassNotFoundException, SQLException, JsonProcessingException {
 		
