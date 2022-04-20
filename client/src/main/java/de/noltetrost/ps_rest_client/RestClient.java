@@ -38,13 +38,13 @@ public class RestClient {
 	}
 	
 	public Response postArtikel(Artikel artikel) {
-		
+		System.out.println("posting Artikel");
 		Response response = 
 				client
 				.target(URI_Artikel)
-				.request(MediaType.APPLICATION_JSON)
+				.request(MediaType.TEXT_PLAIN)
 				.post(Entity.entity(artikel, MediaType.APPLICATION_JSON));
-		
+		System.out.println("response: " + response);
 		return response;
 	}
 	

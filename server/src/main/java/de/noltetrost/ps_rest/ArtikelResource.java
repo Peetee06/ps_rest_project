@@ -89,7 +89,7 @@ public class ArtikelResource {
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response createArtikel(Artikel artikel) 
 					throws ClassNotFoundException, SQLException, JsonProcessingException {
-		
+		System.out.println("server got an artikel to store");
 		DatabaseHandler dbHandler = new DatabaseHandler();
 		
 		dbHandler.connectDb();
